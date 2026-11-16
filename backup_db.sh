@@ -14,8 +14,8 @@ BACKUP_FILE="$BACKUP_DIR/db_backup_$DATE.sql.gz"
 
 echo "Starting database backup to $BACKUP_FILE..."
 
-# Provide password via PGPASSWORD environment variable
-export PGPASSWORD="smgh123!"
+# Set PGPASSWORD in the calling environment; do not store database credentials here.
+: "${PGPASSWORD:?Set PGPASSWORD before running this backup}"
 
 pg_dump -U "$DB_USER" -h "$DB_HOST" "$DB_NAME" | gzip > "$BACKUP_FILE"
 

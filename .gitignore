@@ -9,6 +9,16 @@ venv/
 ENV/
 env/
 .env
+.env.*
+.env.local
+.env*local
+!.env.example
+smartguard_backend/.env
+smartguard_backend/.env.*
+!smartguard_backend/.env.example
+smartguard-frontend/.env
+smartguard-frontend/.env.*
+!smartguard-frontend/.env.example
 
 # Node / React (Frontend)
 node_modules/
@@ -37,3 +47,11 @@ yolov8n.pt
 .DS_Store
 Thumbs.db
 .aider*
+
+# Local exports, deployment dumps, and temporary working files
+/.archive/
+*.rdb
+*.zip
+*.tar.gz
+*.bak
+~$*

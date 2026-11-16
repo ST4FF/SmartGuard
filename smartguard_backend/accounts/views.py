@@ -164,7 +164,12 @@ def login_view(request):
     import json
     import os
 
-    secret_key = os.environ.get("RECAPTCHA_SECRET_KEY", "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe")
+    secret_key = os.environ.get("RECAPTCHA_SECRET_KEY", "")
+    if not secret_key:
+        return Response(
+            {"detail": "Captcha verification is not configured."},
+            status=status.HTTP_503_SERVICE_UNAVAILABLE,
+        )
     try:
         data = urllib.parse.urlencode({
             'secret': secret_key,

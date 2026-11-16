@@ -17,7 +17,7 @@ TWILIO_FROM_NUMBER  = os.environ.get("TWILIO_FROM_NUMBER",  "")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ── Core ───────────────────────────────────────────────────────────────────────
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-fallback-do-not-use-in-prod')
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 DEBUG      = False
 ALLOWED_HOSTS = ["smart-guard.duckdns.org", "smartguard.54.206.184.54.nip.io", "54.206.184.54", "localhost", "127.0.0.1"]
 STREAM_BASE_URL = os.environ.get("STREAM_BASE_URL", "http://localhost:8001")

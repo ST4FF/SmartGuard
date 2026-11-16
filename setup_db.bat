@@ -7,11 +7,12 @@ echo.
 
 set /p PGPASS="'postgres' user password (enter what you set during installation): "
 set PGPASSWORD=%PGPASS%
+set /p PGUSERPASS="Password for the new 'smartguard' database user: "
 
 echo.
 echo Creating database and user...
 "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE DATABASE smartguard_db;"
-"C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE USER smartguard WITH PASSWORD 'smgh123!';"
+"C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE USER smartguard WITH PASSWORD '%PGUSERPASS%';"
 "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "ALTER ROLE smartguard SET client_encoding TO 'utf8';"
 "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "ALTER ROLE smartguard SET default_transaction_isolation TO 'read committed';"
 "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "ALTER ROLE smartguard SET timezone TO 'UTC';"

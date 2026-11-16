@@ -19,7 +19,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import "./LoginPage.css";
 import useDocumentTitle from "../utils/useDocumentTitle.js";
 
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
 
 // ── Shared 6-box OTP input ─────────────────────────────────────────────────
 function OTPBoxes({ onComplete, disabled }) {
